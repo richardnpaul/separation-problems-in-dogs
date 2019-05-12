@@ -31,7 +31,16 @@ for row in dataset.iterrows():
 fig = pyplot.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-for row in row_list:
-    ax.scatter(row[2], row[3], row[4], c=groups[row[0]][0], marker=groups[row[0]][1])
+for k, v in groups.items():
+    current_group = dataset.loc[dataset['Groups'] == k]
+    ax.scatter(current_group['DiscFunc1'], current_group['DiscFunc2'],
+               current_group['DiscFunc3'], c=groups[k][0], marker=groups[k][1],
+               label=f'Group {k}')
+
+
+ax.legend()
+ax.set_xlabel('Discriminant Function 1')
+ax.set_ylabel('Discriminant Function 2')
+ax.set_zlabel('Discriminant Function 3')
 
 pyplot.show()
