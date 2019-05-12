@@ -1,7 +1,7 @@
 # Quick instructions
 
 **Install requirements:**
-* Install python
+* Install python3 (version later than 3.5)
 * Install virtualenv
     ```bazaar
     pip install virtualenv
