@@ -5,8 +5,8 @@ import argparse
 
 # 3rd party imports
 import pandas
-import matplotlib.pyplot as pyplot
-from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import pyplot
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 # Rather than including the data in the repo, take a CSV file to parse
 parser = argparse.ArgumentParser(description='Take a file and plot the data')
@@ -29,14 +29,13 @@ for row in dataset.iterrows():
     row_list.append(data.tolist())
 
 fig = pyplot.figure()
-ax = fig.add_subplot(111, projection='3d')
+ax = fig.add_subplot(1, 1, 1, projection='3d')
 
 for k, v in groups.items():
     current_group = dataset.loc[dataset['Groups'] == k]
     ax.scatter(current_group['DiscFunc1'], current_group['DiscFunc2'],
                current_group['DiscFunc3'], c=groups[k][0], marker=groups[k][1],
                label=f'Group {k}')
-
 
 ax.legend()
 ax.set_xlabel('Discriminant Function 1')
