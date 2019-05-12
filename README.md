@@ -8,7 +8,7 @@
     ```
 * Make new virtualenv
     ```bazaar
-    mkvirtualenv --python `which python` venv
+    virtualenv --python=`which python` venv
     ```
 * Activate the virtualenv (this will activate in bash, depending on what os and
  shell you are using you may need to change this to .csh, .fish, .bat)
