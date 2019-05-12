@@ -22,12 +22,6 @@ groups = dict(
 
 dataset = pandas.read_csv(args.filename)
 
-row_list = list()
-
-for row in dataset.iterrows():
-    index, data = row
-    row_list.append(data.tolist())
-
 fig = pyplot.figure()
 ax = fig.add_subplot(1, 1, 1, projection='3d')
 
