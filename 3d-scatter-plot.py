@@ -11,6 +11,7 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 # Rather than including the data in the repo, take a CSV file to parse
 parser = argparse.ArgumentParser(description='Take a file and plot the data')
 parser.add_argument('-f', '--filename', type=str, required=True)
+parser.add_argument('-o', '--outfile', type=str, required=False)
 args = parser.parse_args()
 
 groups = dict(
@@ -36,4 +37,7 @@ ax.set_xlabel('Discriminant Function 1')
 ax.set_ylabel('Discriminant Function 2')
 ax.set_zlabel('Discriminant Function 3')
 
-pyplot.show()
+if args.outfile:
+    pyplot.savefig(args.outfile, format='eps', dpi=300)
+else:
+    pyplot.show()
