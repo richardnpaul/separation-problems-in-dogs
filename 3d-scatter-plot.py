@@ -12,7 +12,13 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 parser = argparse.ArgumentParser(description='Take a file and plot the data')
 parser.add_argument('-f', '--filename', type=str, required=True)
 parser.add_argument('-o', '--outfile', type=str, required=False)
+parser.add_argument('--format', type=str, choices=['jpg','png','pdf','svg','eps'], required=False)
+parser.add_argument('--resolution', type=int, required=False)
 args = parser.parse_args()
+
+# Some reasonable defaults
+outfile_format = args.format or 'eps'
+outfile_resolution = args.resolution or 300
 
 groups = dict(
     A=('b','o'),
