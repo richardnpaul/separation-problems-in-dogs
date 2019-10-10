@@ -1,3 +1,5 @@
 .idea/
-DiscrimFunctions_4 groups_762 dogs.csv
+*.csv
 *.pyc
+*.tiff
+*.eps
