@@ -21,10 +21,10 @@ outfile_format = args.format or 'eps'
 outfile_resolution = args.resolution or 300
 
 groups = dict(
-    A=('b','o'),
-    B=('g','^'),
-    C=('r','D'),
-    D=('k','s'),
+    A=('#9dbbd9','o'),
+    B=('#fec19f','^'),
+    C=('#34b25e','D'),
+    D=('#dca0a0','s'),
 )
 
 dataset = pandas.read_csv(args.filename)
