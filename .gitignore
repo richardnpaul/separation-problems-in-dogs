@@ -1,5 +1,5 @@
 .idea/
 *.csv
 *.pyc
-*.tiff
+*.tif*
 *.eps
