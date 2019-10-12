@@ -12,7 +12,7 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 parser = argparse.ArgumentParser(description='Take a file and plot the data')
 parser.add_argument('-f', '--filename', type=str, required=True)
 parser.add_argument('-o', '--outfile', type=str, required=False)
-parser.add_argument('--format', type=str, choices=['jpg','png','pdf','svg','eps'], required=False)
+parser.add_argument('--format', type=str, choices=['jpg','png','pdf','svg','eps','tiff'], required=False)
 parser.add_argument('--resolution', type=int, required=False)
 args = parser.parse_args()
 
@@ -21,10 +21,10 @@ outfile_format = args.format or 'eps'
 outfile_resolution = args.resolution or 300
 
 groups = dict(
-    A=('#9dbbd9','o'),
-    B=('#fec19f','^'),
-    C=('#34b25e','D'),
-    D=('#dca0a0','s'),
+    A=('b','o'),
+    B=('#f48024','^'),
+    C=('g','D'),
+    D=('r','s'),
 )
 
 dataset = pandas.read_csv(args.filename)
@@ -44,6 +44,6 @@ ax.set_ylabel('Discriminant Function 2')
 ax.set_zlabel('Discriminant Function 3')
 
 if args.outfile:
-    pyplot.savefig(args.outfile, format='eps', dpi=300)
+    pyplot.savefig(args.outfile, format=outfile_format, dpi=300)
 else:
     pyplot.show()
